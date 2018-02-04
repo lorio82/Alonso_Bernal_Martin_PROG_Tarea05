@@ -13,4 +13,10 @@ public class AlquilerVehiculos {
     Cliente[] clientes;
     Turismo[] turismos;
     Alquiler[] alquileres;
+    
+    public AlquilerVehiculos() {
+        clientes = new Cliente[MAX_CLIENTES];
+        turismos = new Turismo[MAX_TURISMOS];
+        alquileres = new Alquiler[MAX_ALQUILERES];
+    }
 }
