@@ -53,4 +53,26 @@ public class AlquilerVehiculos {
             return null;
         }
     }
+    public void addCliente(Cliente cliente) {
+        int i = 0;
+        boolean vacio = false;
+
+        while (i < clientes.length && !vacio) {
+            if (clientes[i] == null) {
+                vacio = true;
+            } else {
+                if (clientes[i].getDni().equals(cliente.getDni())) {
+                    throw new ExcepcionAlquilerVehiculos("El cliente introducido ya existe");
+                } else {
+                    i++;
+                }
+            }
+        }
+
+        if (vacio) {
+            clientes[i] = cliente;
+        } else {
+            throw new ExcepcionAlquilerVehiculos("No se puede añadir el nuevo cliente. Límite de clientes alcanzado");
+        }
+    }
 }
