@@ -85,4 +85,9 @@ public class Cliente {
     public int getIdentificador() {
         return identificador;
     }
+    
+    @Override
+    public String toString() {
+        return String.format("Nombre: %s , DNI: %s, Dirección: %s, Localidad: %s, Código Postal: %s, Identificador: %d, numClientes: %d", nombre, dni, direccion, localidad, codigoPostal, identificador, numClientes);
+    }
 }
