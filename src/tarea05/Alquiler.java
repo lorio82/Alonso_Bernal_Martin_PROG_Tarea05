@@ -42,4 +42,15 @@ public class Alquiler {
     public int getDias() {
         return dias;
     }
+    
+    public void close() {
+        Date fechaFin = new Date();
+        dias = difDias(fecha, fechaFin);
+        turismo.setDisponible(true);
+    }
+
+    private int difDias(Date fecha, Date fechaFin) {
+        dias = (int) ((fechaFin.getTime() - fecha.getTime()) / MS_DIA);
+        return dias;
+    }
 }
