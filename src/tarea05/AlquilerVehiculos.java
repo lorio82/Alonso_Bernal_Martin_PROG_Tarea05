@@ -151,4 +151,33 @@ public class AlquilerVehiculos {
         }
 
     }
+    
+    public void delTurismo(String matricula) {
+        int i = 0;
+        int posicion = 0;
+        boolean encontrado = false;
+
+        while (i < turismos.length && !encontrado) {
+            if (turismos[i] != null && turismos[i].getMatricula().equals(matricula)) {
+                encontrado = true;
+                posicion = i;
+            } else {
+                i++;
+            }
+        }
+
+        if (encontrado && turismos[i].getDisponible()) {
+
+            for (i = posicion; i < turismos.length - 1; i++) {
+                turismos[i] = turismos[i + 1];
+            }
+
+            turismos[turismos.length - 1] = null;
+
+        } else {
+
+            throw new ExcepcionAlquilerVehiculos("El turismo que desea eliminar no existe o está ocupado");
+        }
+
+    }
 }
