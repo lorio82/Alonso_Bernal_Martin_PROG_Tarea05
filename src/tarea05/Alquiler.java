@@ -65,4 +65,16 @@ public class Alquiler {
 
         return precio;
     }
+    
+    @Override
+    public String toString() {
+        String estadoAlquiler;
+        if (turismo.getDisponible()) {
+            estadoAlquiler = "Cerrado";
+        } else {
+            estadoAlquiler = "Abierto";
+        }
+
+        return String.format("Estado: %s , Fecha de Origen: %s , Dias: %d , Precio: %2f , Cliente: %s , Turismo: %s ", estadoAlquiler, FORMATO_FECHA.format(fecha), dias, getPrecio(), cliente, turismo);
+    }
 }
