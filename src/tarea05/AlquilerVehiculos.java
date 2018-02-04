@@ -126,4 +126,29 @@ public class AlquilerVehiculos {
             return null;
         }
     }
+    
+    public void addTurismo(Turismo turismo) {
+        int i = 0;
+        boolean vacio = false;
+
+        while (i < turismos.length && !vacio) {
+
+            if (turismos[i] == null) {
+                vacio = true;
+            } else {
+                if (turismos[i].getMatricula().equals(turismo.getMatricula())) {
+                    throw new ExcepcionAlquilerVehiculos("El turismo introducido ya existe");
+                } else {
+                    i++;
+                }
+            }
+        }
+
+        if (vacio) {
+            turismos[i] = turismo;
+        } else {
+            throw new ExcepcionAlquilerVehiculos("No se puede añadir el nuevo turismo. Límite de clientes alcanzado");
+        }
+
+    }
 }
