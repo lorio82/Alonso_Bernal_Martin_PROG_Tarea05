@@ -53,4 +53,16 @@ public class Alquiler {
         dias = (int) ((fechaFin.getTime() - fecha.getTime()) / MS_DIA);
         return dias;
     }
+    
+    public double getPrecio() {
+        double precio;
+
+        if (dias <= 1) {
+            precio = 30 + turismo.getCilindrada() / 100.0;
+        } else {
+            precio = (30 + turismo.getCilindrada() / 100.0) * dias;
+        }
+
+        return precio;
+    }
 }
