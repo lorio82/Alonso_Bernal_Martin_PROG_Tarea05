@@ -72,4 +72,15 @@ public class Turismo {
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
     }
+    
+    @Override
+    public String toString() {
+        String estadoTurismo;
+        if (disponible) {
+            estadoTurismo = "Disponible";
+        } else {
+            estadoTurismo = "Ocupado";
+        }
+        return String.format(" Matricula: %s , Marca: %s , Modelo: %s , Cilindrada: %d , Estado: %s", matricula, marca, modelo, cilindrada, estadoTurismo);
+    }
 }
