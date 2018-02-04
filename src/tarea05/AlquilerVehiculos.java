@@ -103,4 +103,27 @@ public class AlquilerVehiculos {
             throw new ExcepcionAlquilerVehiculos("El cliente a boorar no existe");
         }
     }
+    
+    public Turismo getTurismo(String matricula) {
+        int i = 0;
+        int posicion = 0;
+        boolean encontrado = false;
+
+        while (i < turismos.length && !encontrado) {
+
+            if (turismos[i] != null && turismos[i].getMatricula().equals(matricula)) {
+                encontrado = true;
+                posicion = i;
+            } else {
+                i++;
+            }
+
+        }
+
+        if (encontrado) {
+            return turismos[posicion];
+        } else {
+            return null;
+        }
+    }
 }
