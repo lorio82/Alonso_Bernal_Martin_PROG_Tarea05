@@ -199,4 +199,27 @@ public class AlquilerVehiculos {
             throw new ExcepcionAlquilerVehiculos("El turismo está ocupado.");
         }
     }
+    
+    public void closeAlquiler(Cliente cliente, Turismo turismo) {
+        int i = 0;
+        boolean existe = false;
+
+        while (i < alquileres.length && existe == false) {
+
+            if (alquileres[i].getCliente().getDni().equals(cliente.getDni())
+                    && alquileres[i].getTurismo().getMatricula().equals(turismo.getMatricula())) {
+
+                existe = true;
+            } else {
+                i++;
+            }
+
+            if (existe == true) {
+                alquileres[i].close();
+            } else {
+                throw new ExcepcionAlquilerVehiculos("No se dispone de ningun alquiler abierto para los datos introducidos.");
+            }
+
+        }
+    }
 }
